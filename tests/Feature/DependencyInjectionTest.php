@@ -46,4 +46,19 @@ class DependencyInjectionTest extends TestCase
         self::assertEquals("Jimmy", $person2->lastname);
         self::assertSame($person1, $person2);
     }
+
+    public function testInstance()
+    {
+        $person  = new Person("Jimmy", "Wira");
+        $this->app->instance(Person::class, $person);
+
+        $person1 = $this->app->make(Person::class);
+        $person2 = $this->app->make(Person::class);
+        $person3 = $this->app->make(Person::class);
+        $person4 = $this->app->make(Person::class);
+
+        self::assertEquals("Jimmy", $person1->firstname);
+        self::assertEquals("Jimmy", $person2->firstname);
+        self::assertSame($person1, $person2);
+    }
 }
