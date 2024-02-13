@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/jwa', function () {
     return "Jimmy Wira Arbaa";
 });
+
+Route::redirect('/jimmy', '/jwa');
