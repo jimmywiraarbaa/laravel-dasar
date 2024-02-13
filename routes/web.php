@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/jwa', function () {
-    return "Jimmy Wira Arba'a";
+    return "Jimmy Wira Arbaa";
 });
