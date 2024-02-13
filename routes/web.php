@@ -22,3 +22,7 @@ Route::get('/jwa', function () {
 });
 
 Route::redirect('/jimmy', '/jwa');
+
+Route::fallback(function () {
+    return "Error 404 by Jimmy Wira Arbaa";
+});
