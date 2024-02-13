@@ -27,6 +27,10 @@ Route::get('/hello', function () {
     return view('hello', ['name' => 'Jimmy']);
 });
 
+Route::get('/author', function () {
+    return view('author.jimmy', ['name' => 'Jimmy Wira Arbaa']);
+});
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";
