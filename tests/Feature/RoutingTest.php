@@ -20,4 +20,10 @@ class RoutingTest extends TestCase
         $this->get('/jimmy')
             ->assertRedirect('/jwa');
     }
+
+    public function testFallBack()
+    {
+        $this->get('/404')
+            ->assertSeeText('404 by Jimmy Wira Arbaa');
+    }
 }
