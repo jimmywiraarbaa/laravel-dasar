@@ -23,6 +23,11 @@ Route::get('/jwa', function () {
 
 Route::redirect('/jimmy', '/jwa');
 
+Route::get('/halo', function () {
+    return view('hello', ['name' => 'Jimmy']);
+});
+
+// Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";
 });
