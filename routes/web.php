@@ -23,7 +23,7 @@ Route::get('/jwa', function () {
 
 Route::redirect('/jimmy', '/jwa');
 
-Route::get('/halo', function () {
+Route::get('/hello', function () {
     return view('hello', ['name' => 'Jimmy']);
 });
 
