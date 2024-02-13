@@ -14,4 +14,10 @@ class RoutingTest extends TestCase
             ->assertStatus(200)
             ->assertSeeText('Jimmy Wira Arbaa');
     }
+
+    public function testRedirect()
+    {
+        $this->get('/jimmy')
+            ->assertRedirect('/jwa');
+    }
 }
