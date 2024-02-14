@@ -38,4 +38,10 @@ class RoutingTest extends TestCase
         $this->get('/products/1/items/1')
             ->assertSeeText('Product ID : 1, Item : 1');
     }
+
+    public function testRouteParameterRegex()
+    {
+        $this->get('/category/jim')
+            ->assertSeeText('Error 404 by Jimmy Wira Arbaa');
+    }
 }

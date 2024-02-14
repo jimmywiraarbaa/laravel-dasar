@@ -39,6 +39,10 @@ Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
     return "Product ID : $productId, Item : $itemId";
 });
 
+Route::get('/category/{id}', function ($categoryId) {
+    return "Category ID : $categoryId";
+})->where('id', '[0-9]+');
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";
