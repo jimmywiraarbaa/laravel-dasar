@@ -31,6 +31,14 @@ Route::get('/author', function () {
     return view('author.jimmy', ['name' => 'Jimmy Wira Arbaa']);
 });
 
+Route::get('/products/{id}', function ($productId) {
+    return "Product ID : $productId";
+});
+
+Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
+    return "Product ID : $productId, Item : $itemId";
+});
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";

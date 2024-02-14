@@ -26,4 +26,16 @@ class RoutingTest extends TestCase
         $this->get('/404')
             ->assertSeeText('404 by Jimmy Wira Arbaa');
     }
+
+    public function testRouteParameter()
+    {
+        $this->get('/products/1')
+            ->assertSeeText('Product ID : 1');
+
+        $this->get('/products/3')
+            ->assertSeeText('Product ID : 3');
+
+        $this->get('/products/1/items/1')
+            ->assertSeeText('Product ID : 1, Item : 1');
+    }
 }

@@ -20,7 +20,7 @@ class FacadesTest extends TestCase
         self::assertEquals($firstName1, $firstName2);
         self::assertEquals($firstName1, $firstName3);
 
-        var_dump($config->all());
+        // var_dump($config->all());
     }
 
     public function testFacadeMock()
