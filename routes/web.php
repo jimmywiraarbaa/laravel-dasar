@@ -33,29 +33,38 @@ Route::get('/author', function () {
 
 Route::get('/products/{id}', function ($productId) {
     return "Product ID : $productId";
-});
+})->name('product.detail');
 
 Route::get('/products/{product}/items/{item}', function ($productId, $itemId) {
     return "Product ID : $productId, Item : $itemId";
-});
+})->name('product.item.detail');
 
 Route::get('/category/{id}', function ($categoryId) {
     return "Category ID : $categoryId";
-})->where('id', '[0-9]+');
+})->where('id', '[0-9]+')->name('category.detail');
 
 Route::get('/Users/{id?}', function ($userId = '404') {
     return "User ID : $userId";
-});
+})->name('user.detail');
 
 Route::get('/players/{$name}', function (string $name) {
     return "Player $name";
-});
+})->name('player.detail');
 
 Route::get('/players/jimmy', function () {
     return "Player jimmy wira arbaa";
-});
+})->name('player.detail');
 
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";
+});
+
+Route::get('/produk/{id}', function ($id) {
+    $link = route('product.detail', ['id' => $id]);
+    return "$link";
+});
+
+Route::get('/products-redirect/{id}', function ($id) {
+    return redirect()->route('product.detail', ['id' => $id]);
 });

@@ -59,4 +59,13 @@ class RoutingTest extends TestCase
         $this->get('/players/jimmy')
             ->assertSeeText('Player jimmy wira arbaa');
     }
+
+    public function testRouteName()
+    {
+        $this->get('/produk/123')
+            ->assertSeeText('/products/123');
+
+        $this->get('/products-redirect/123')
+            ->assertRedirect('products/123');
+    }
 }
