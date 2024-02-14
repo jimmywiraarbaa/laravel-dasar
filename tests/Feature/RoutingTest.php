@@ -44,4 +44,13 @@ class RoutingTest extends TestCase
         $this->get('/category/jim')
             ->assertSeeText('Error 404 by Jimmy Wira Arbaa');
     }
+
+    public function testRouteParameterOptional()
+    {
+        $this->get('/Users/jim')
+            ->assertSeeText('User ID : jim');
+
+        $this->get('/Users/')
+            ->assertSeeText('User ID : 404');
+    }
 }
