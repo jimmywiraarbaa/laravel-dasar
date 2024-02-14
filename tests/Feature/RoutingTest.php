@@ -53,4 +53,10 @@ class RoutingTest extends TestCase
         $this->get('/Users/')
             ->assertSeeText('User ID : 404');
     }
+
+    public function testRouteConflict()
+    {
+        $this->get('/players/jimmy')
+            ->assertSeeText('Player jimmy wira arbaa');
+    }
 }
