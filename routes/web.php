@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HelloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,11 +56,6 @@ Route::get('/players/jimmy', function () {
     return "Player jimmy wira arbaa";
 })->name('player.detail');
 
-// Error 404
-Route::fallback(function () {
-    return "Error 404 by Jimmy Wira Arbaa";
-});
-
 Route::get('/produk/{id}', function ($id) {
     $link = route('product.detail', ['id' => $id]);
     return "$link";
@@ -67,4 +63,11 @@ Route::get('/produk/{id}', function ($id) {
 
 Route::get('/products-redirect/{id}', function ($id) {
     return redirect()->route('product.detail', ['id' => $id]);
+});
+
+Route::get('/greeting/hello', [HelloController::class, 'hello']);
+
+// Error 404
+Route::fallback(function () {
+    return "Error 404 by Jimmy Wira Arbaa";
 });
