@@ -18,4 +18,13 @@ class HelloController extends Controller
     {
         return $this->helloService->hello($name);
     }
+
+    public function request(Request $request): string
+    {
+        return $request->path() . PHP_EOL .
+            $request->url() . PHP_EOL .
+            $request->fullurl() . PHP_EOL .
+            $request->method() . PHP_EOL .
+            $request->header('accept');
+    }
 }

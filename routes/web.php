@@ -65,6 +65,7 @@ Route::get('/products-redirect/{id}', function ($id) {
     return redirect()->route('product.detail', ['id' => $id]);
 });
 
+Route::get('/greeting/hello/request', [HelloController::class, 'request']);
 Route::get('/greeting/hello/{name}', [HelloController::class, 'hello']);
 
 // Error 404
