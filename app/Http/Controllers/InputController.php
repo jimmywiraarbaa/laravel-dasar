@@ -29,4 +29,17 @@ class InputController extends Controller
         $names = $request->input("products.*.name");
         return json_encode($names);
     }
+
+    public function inputType(Request $request)
+    {
+        $name = $request->input('name');
+        $married = $request->boolean('married');
+        $birthDate = $request->date('birth_date', 'd-m-Y');
+
+        return json_encode([
+            'name' => $name,
+            'married' => $married,
+            'birth_date' => $birthDate->format('d-m-Y')
+        ]);
+    }
 }

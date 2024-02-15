@@ -39,15 +39,27 @@ class InputControllerTest extends TestCase
     public function testArrayInput()
     {
         $this->post('/input/hello/array', [
-            'products' =>
-            [
-                'name' => 'Iphone',
-                'price' => 10000
-            ],
-            [
-                'name' => 'Android',
-                'price' => 15000
+            'products' => [
+                [
+                    'name' => 'Iphone',
+                    'price' => '10000',
+                ],
+                [
+                    'name' => 'Android',
+                    'price' => '15000',
+                ]
             ]
         ])->assertSeeText("Iphone")->assertSeeText("Android");
+    }
+
+    public function testInputType()
+    {
+        $this->post('/input/type', [
+            'name' => 'Jimmy',
+            'married' => 'true',
+            'birth_date' => '17-06-2003',
+        ])->assertSeeText('Jimmy')
+            ->assertSeeText('true')
+            ->assertSeeText('17-06-2003');
     }
 }

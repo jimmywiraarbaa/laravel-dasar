@@ -75,6 +75,7 @@ Route::post('/input/hello', [InputController::class, 'hello']);
 Route::post('/input/hello/first', [InputController::class, 'helloFirstName']);
 Route::post('/input/hello/input', [InputController::class, 'helloInput']);
 Route::post('/input/hello/array', [InputController::class, 'arrayInput']);
+Route::post('/input/type', [InputController::class, 'inputType']);
 
 // Error 404
 Route::fallback(function () {
