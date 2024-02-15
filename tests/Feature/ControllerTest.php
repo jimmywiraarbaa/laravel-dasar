@@ -10,7 +10,7 @@ class ControllerTest extends TestCase
 {
     public function testController()
     {
-        $this->get('/greeting/hello')
-            ->assertSeeText('Hello World!');
+        $this->get('/greeting/hello/Jimmy')
+            ->assertSeeText('Halo Jimmy');
     }
 }
