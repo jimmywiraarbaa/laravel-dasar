@@ -72,6 +72,8 @@ Route::get('/greeting/hello/{name}', [HelloController::class, 'hello']);
 Route::get('/input/hello', [InputController::class, 'hello']);
 Route::post('/input/hello', [InputController::class, 'hello']);
 
+Route::post('/input/hello/first', [InputController::class, 'helloFirstName']);
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";
