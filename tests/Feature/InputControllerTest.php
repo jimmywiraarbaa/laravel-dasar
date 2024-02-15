@@ -35,4 +35,19 @@ class InputControllerTest extends TestCase
         ])->assertSeeText("name")->assertSeeText("last")
             ->assertSeeText("Jimmy")->assertSeeText("Wira");
     }
+
+    public function testArrayInput()
+    {
+        $this->post('/input/hello/array', [
+            'products' =>
+            [
+                'name' => 'Iphone',
+                'price' => 10000
+            ],
+            [
+                'name' => 'Android',
+                'price' => 15000
+            ]
+        ])->assertSeeText("Iphone")->assertSeeText("Android");
+    }
 }

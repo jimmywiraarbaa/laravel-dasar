@@ -23,4 +23,10 @@ class InputController extends Controller
         $input = $request->input();
         return json_encode($input);
     }
+
+    public function arrayInput(Request $request): string
+    {
+        $names = $request->input("products.*.name");
+        return json_encode($names);
+    }
 }
