@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\InputController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,6 +68,9 @@ Route::get('/products-redirect/{id}', function ($id) {
 
 Route::get('/greeting/hello/request', [HelloController::class, 'request']);
 Route::get('/greeting/hello/{name}', [HelloController::class, 'hello']);
+
+Route::get('/input/hello', [InputController::class, 'hello']);
+Route::post('/input/hello', [InputController::class, 'hello']);
 
 // Error 404
 Route::fallback(function () {
