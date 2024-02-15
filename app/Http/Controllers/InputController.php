@@ -17,4 +17,10 @@ class InputController extends Controller
         $firstName = $request->input('name.first');
         return "Halo " . $firstName;
     }
+
+    public function helloInput(Request $request): string
+    {
+        $input = $request->input();
+        return json_encode($input);
+    }
 }

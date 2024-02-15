@@ -24,4 +24,15 @@ class InputControllerTest extends TestCase
             ]
         ])->assertSeeText("Halo Jimmy");
     }
+
+    public function testInputAll()
+    {
+        $this->post('/input/hello/input', [
+            'name' => [
+                'first' => 'Jimmy',
+                'last' => 'Wira',
+            ]
+        ])->assertSeeText("name")->assertSeeText("last")
+            ->assertSeeText("Jimmy")->assertSeeText("Wira");
+    }
 }
