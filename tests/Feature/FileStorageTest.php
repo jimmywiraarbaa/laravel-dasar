@@ -17,4 +17,13 @@ class FileStorageTest extends TestCase
 
         self::assertEquals('Jimmy Wira Arbaa', $contents);
     }
+
+    public function testPublicStorage()
+    {
+        $filesystem = Storage::disk("public");
+        $filesystem->put('file.txt', 'Jimmy Wira Arbaa');
+        $contents = $filesystem->get('file.txt');
+
+        self::assertEquals('Jimmy Wira Arbaa', $contents);
+    }
 }
