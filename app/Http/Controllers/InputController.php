@@ -42,4 +42,16 @@ class InputController extends Controller
             'birth_date' => $birthDate->format('d-m-Y')
         ]);
     }
+
+    public function filterOnly(Request $request)
+    {
+        $name = $request->only("name.first", "name.last");
+        return json_encode($name);
+    }
+
+    public function filterExcept(Request $request)
+    {
+        $user = $request->except("admin");
+        return json_encode($user);
+    }
 }
