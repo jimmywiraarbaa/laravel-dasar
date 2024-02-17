@@ -91,6 +91,11 @@ Route::post('/file/upload', [FileController::class, 'upload']);
 Route::get('/response/hello', [ResponseController::class, 'response']);
 Route::get('/response/header', [ResponseController::class, 'header']);
 
+Route::get('/response/type/view', [ResponseController::class, 'responseView']);
+Route::get('/response/type/json', [ResponseController::class, 'responseJson']);
+Route::get('/response/type/file', [ResponseController::class, 'responseFile']);
+Route::get('/response/type/download', [ResponseController::class, 'responseDownload']);
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";

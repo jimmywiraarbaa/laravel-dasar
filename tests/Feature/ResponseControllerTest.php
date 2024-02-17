@@ -25,4 +25,31 @@ class ResponseControllerTest extends TestCase
             ->assertHeader("Author", "Mamamia Tech")
             ->assertHeader("App", "Laravel 10");
     }
+
+    public function testResponseView()
+    {
+        $this->get('/response/type/view')
+            ->assertSeeText("Halo Jimmy");
+    }
+
+    public function testResponseJson()
+    {
+        $this->get('/response/type/json')
+            ->assertJson([
+                'firstName' => 'Jimin',
+                'lastName' => 'kun',
+            ]);
+    }
+
+    public function testResponseFile()
+    {
+        $this->get('/response/type/file')
+            ->assertHeader('Content-Type', 'image/png');
+    }
+
+    public function testResponseDownload()
+    {
+        $this->get('/response/type/download')
+            ->assertDownload('lagimandi.png');
+    }
 }
