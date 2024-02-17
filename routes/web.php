@@ -99,6 +99,7 @@ Route::get('/response/type/download', [ResponseController::class, 'responseDownl
 
 // CookieController
 Route::get('/cookie/set', [CookieController::class, 'createCookie']);
+Route::get('/cookie/get', [CookieController::class, 'getCookie']);
 
 // Error 404
 Route::fallback(function () {
