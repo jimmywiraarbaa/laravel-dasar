@@ -89,6 +89,7 @@ Route::post('/file/upload', [FileController::class, 'upload']);
 
 // ResponseController
 Route::get('/response/hello', [ResponseController::class, 'response']);
+Route::get('/response/header', [ResponseController::class, 'header']);
 
 // Error 404
 Route::fallback(function () {
