@@ -3,6 +3,7 @@
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
+use App\Http\Controllers\ResponseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -85,6 +86,9 @@ Route::post('/input/filter/merge', [InputController::class, 'filterMerge']);
 
 // FileController
 Route::post('/file/upload', [FileController::class, 'upload']);
+
+// ResponseController
+Route::get('/response/hello', [ResponseController::class, 'response']);
 
 // Error 404
 Route::fallback(function () {
