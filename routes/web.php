@@ -108,6 +108,7 @@ Route::get('/redirect/to', [RedirectController::class, 'redirectTo']);
 Route::get('/redirect/from', [RedirectController::class, 'redirectFrom']);
 Route::get('/redirect/name', [RedirectController::class, 'redirectName'])->name('redirect-Name');
 Route::get('/redirect/name/{name}', [RedirectController::class, 'redirectHello'])->name('redirect-Hello');
+Route::get('/redirect/action', [RedirectController::class, 'redirectAction']);
 
 // Error 404
 Route::fallback(function () {
