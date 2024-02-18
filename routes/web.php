@@ -127,20 +127,22 @@ Route::prefix('/redirect/')->group(function () {
 
 
 // Middleware
-Route::prefix('/middleware/')->group(function () {
-    Route::get('/api', function () {
-        return "OK";
-    })->middleware(['example:JWA, 401']);
+Route::middleware(['example:JWA, 401'])->group(function () {
+    Route::prefix('/middleware/')->group(function () {
+        Route::get('/api', function () {
+            return "OK";
+        });
 
-    //Middleware Group
-    Route::get('/group', function () {
-        return "Group";
-    })->middleware(['jwa']);
+        //Middleware Group
+        Route::get('/group', function () {
+            return "Group";
+        });
 
-    //Middleware Parameter
-    Route::get('/parameter', function () {
-        return "Parameter";
-    })->middleware(['example:Jimmy, 401']);
+        //Middleware Parameter
+        Route::get('/parameter', function () {
+            return "Parameter";
+        });
+    });
 });
 
 
