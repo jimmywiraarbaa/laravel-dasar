@@ -116,6 +116,11 @@ Route::get('/middleware/api', function () {
     return "OK";
 })->middleware(['example']);
 
+//Middleware Group
+Route::get('/middleware/group', function () {
+    return "Group";
+})->middleware(['jwa']);
+
 
 // Error 404
 Route::fallback(function () {

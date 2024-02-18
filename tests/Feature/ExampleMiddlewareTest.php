@@ -22,4 +22,19 @@ class ExampleMiddlewareTest extends TestCase
             ->assertStatus(200)
             ->assertSeeText('OK');
     }
+
+    public function testInvalidGroup()
+    {
+        $this->get('/middleware/group')
+            ->assertStatus(401)
+            ->assertSeeText('AccessDenied');
+    }
+
+    public function testValidGroup()
+    {
+        $this->withHeader('X-API-KEY', 'JWA')
+            ->get('/middleware/group')
+            ->assertStatus(200)
+            ->assertSeeText('Group');
+    }
 }
