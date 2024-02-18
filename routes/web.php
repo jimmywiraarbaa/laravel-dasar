@@ -116,11 +116,6 @@ Route::prefix('/cookie/')->group(function () {
 
 
 // RedirectController
-Route::controller(RedirectController::class)->group(function () {
-    Route::prefix('/redirect/')->group(function () {
-    });
-});
-
 Route::controller(RedirectController::class)->prefix('/redirect/')->group(function () {
     Route::get('/to', 'redirectTo');
     Route::get('/from', 'redirectFrom');
