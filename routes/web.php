@@ -6,6 +6,7 @@ use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -87,7 +88,8 @@ Route::post('/input/filter/except', [InputController::class, 'filterExcept']);
 Route::post('/input/filter/merge', [InputController::class, 'filterMerge']);
 
 // FileController
-Route::post('/file/upload', [FileController::class, 'upload']);
+Route::post('/file/upload', [FileController::class, 'upload'])
+    ->withoutMiddleware([VerifyCsrfToken::class]);
 
 // ResponseController
 Route::get('/response/hello', [ResponseController::class, 'response']);
