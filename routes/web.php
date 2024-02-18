@@ -111,6 +111,12 @@ Route::get('/redirect/name/{name}', [RedirectController::class, 'redirectHello']
 Route::get('/redirect/action', [RedirectController::class, 'redirectAction']);
 Route::get('/redirect/away/youtube', [RedirectController::class, 'redirectAway']);
 
+// Middleware
+Route::get('/middleware/api', function () {
+    return "OK";
+})->middleware(['example']);
+
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";
