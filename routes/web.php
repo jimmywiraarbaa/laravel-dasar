@@ -118,13 +118,16 @@ Route::prefix('/cookie/')->group(function () {
 // RedirectController
 Route::controller(RedirectController::class)->group(function () {
     Route::prefix('/redirect/')->group(function () {
-        Route::get('/to', 'redirectTo');
-        Route::get('/from', 'redirectFrom');
-        Route::get('/name', 'redirectName')->name('redirect-Name');
-        Route::get('/name/{name}', 'redirectHello')->name('redirect-Hello');
-        Route::get('/action', 'redirectAction');
-        Route::get('/away/youtube', 'redirectAway');
     });
+});
+
+Route::controller(RedirectController::class)->prefix('/redirect/')->group(function () {
+    Route::get('/to', 'redirectTo');
+    Route::get('/from', 'redirectFrom');
+    Route::get('/name', 'redirectName')->name('redirect-Name');
+    Route::get('/name/{name}', 'redirectHello')->name('redirect-Hello');
+    Route::get('/action', 'redirectAction');
+    Route::get('/away/youtube', 'redirectAway');
 });
 
 
