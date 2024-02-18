@@ -129,21 +129,19 @@ Route::controller(RedirectController::class)->group(function () {
 
 
 // Middleware
-Route::middleware(['example:JWA, 401'])->group(function () {
-    Route::prefix('/middleware/')->group(function () {
-        Route::get('/api', function () {
-            return "OK";
-        });
+Route::middleware(['example:JWA, 401'])->prefix('/middleware')->group(function () {
+    Route::get('/api', function () {
+        return "OK";
+    });
 
-        //Middleware Group
-        Route::get('/group', function () {
-            return "Group";
-        });
+    //Middleware Group
+    Route::get('/group', function () {
+        return "Group";
+    });
 
-        //Middleware Parameter
-        Route::get('/parameter', function () {
-            return "Parameter";
-        });
+    //Middleware Parameter
+    Route::get('/parameter', function () {
+        return "Parameter";
     });
 });
 
