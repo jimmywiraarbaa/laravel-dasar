@@ -37,4 +37,19 @@ class ExampleMiddlewareTest extends TestCase
             ->assertStatus(200)
             ->assertSeeText('Group');
     }
+
+    public function testInvalidParameter()
+    {
+        $this->get('/middleware/parameter')
+            ->assertStatus(401)
+            ->assertSeeText('AccessDenied');
+    }
+
+    // public function testValidParameter()
+    // {
+    //     $this->withHeader('X-API-KEY', 'JWA')
+    //     ->get('/middleware/group')
+    //     ->assertStatus(200)
+    //         ->assertSeeText('Group');
+    // }
 }

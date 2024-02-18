@@ -30,7 +30,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'jwa' => [
-            \App\Http\Middleware\ExampleMiddleware::class,
+            'example:JWA,401'
         ],
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,

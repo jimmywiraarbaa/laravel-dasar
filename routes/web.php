@@ -114,12 +114,17 @@ Route::get('/redirect/away/youtube', [RedirectController::class, 'redirectAway']
 // Middleware
 Route::get('/middleware/api', function () {
     return "OK";
-})->middleware(['example']);
+})->middleware(['example:JWA, 401']);
 
 //Middleware Group
 Route::get('/middleware/group', function () {
     return "Group";
 })->middleware(['jwa']);
+
+//Middleware Parameter
+Route::get('/middleware/parameter', function () {
+    return "Parameter";
+})->middleware(['example:Jimmy, 401']);
 
 
 // Error 404
