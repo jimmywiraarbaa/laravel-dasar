@@ -159,7 +159,9 @@ Route::get('/url/named', function () {
 });
 
 Route::get('/url/action', function () {
-    return action([FormController::class, 'form'], []);
+    // return action([FormController::class, 'form'], []);
+    // return url()->action([FormController::class, 'form'], []);
+    return URL::action([FormController::class, 'form'], []);
 });
 
 // Error 404
