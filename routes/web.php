@@ -154,8 +154,12 @@ Route::get('/url/current', function () {
     return URL::full();
 });
 
-Route::get('/redirect/named', function () {
+Route::get('/url/named', function () {
     return URL::route('redirect-Hello', ['name' => 'Jimmy']);
+});
+
+Route::get('/url/action', function () {
+    return action([FormController::class, 'form'], []);
 });
 
 // Error 404
