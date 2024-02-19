@@ -9,6 +9,7 @@ use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,6 +148,11 @@ Route::middleware(['example:JWA, 401'])->prefix('/middleware')->group(function (
 // FormController
 Route::get('/form', [FormController::class, 'form']);
 Route::post('/form', [FormController::class, 'submitForm']);
+
+// URL Generation
+Route::get('/url/current', function () {
+    return URL::full();
+});
 
 // Error 404
 Route::fallback(function () {
