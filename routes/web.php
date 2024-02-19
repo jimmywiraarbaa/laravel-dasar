@@ -154,6 +154,10 @@ Route::get('/url/current', function () {
     return URL::full();
 });
 
+Route::get('/redirect/named', function () {
+    return URL::route('redirect-Hello', ['name' => 'Jimmy']);
+});
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";
