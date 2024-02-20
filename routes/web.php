@@ -7,6 +7,7 @@ use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\RedirectController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Controllers\SessionController;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
@@ -163,6 +164,10 @@ Route::get('/url/action', function () {
     // return url()->action([FormController::class, 'form'], []);
     return URL::action([FormController::class, 'form'], []);
 });
+
+
+// Session Controller
+Route::get('/session/create', [SessionController::class, 'createSession']);
 
 // Error 404
 Route::fallback(function () {
