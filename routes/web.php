@@ -170,6 +170,11 @@ Route::get('/url/action', function () {
 Route::get('/session/create', [SessionController::class, 'createSession']);
 Route::get('/session/get', [SessionController::class, 'getSession']);
 
+// Error Handler
+Route::get('/error/sample', function () {
+    throw new Exception("Sample Error");
+});
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";
