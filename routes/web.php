@@ -1,5 +1,6 @@
 <?php
 
+use App\Exceptions\ValidationException;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FormController;
@@ -179,6 +180,11 @@ Route::get('/error/sample', function () {
 Route::get('/error/manual', function () {
     report(new Exception("Sample Error"));
     return "OK";
+});
+
+// Ignore Exception
+Route::get('/error/validation', function () {
+    throw new ValidationException("Validation Error");
 });
 
 // Error 404
