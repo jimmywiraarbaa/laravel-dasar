@@ -12,4 +12,12 @@ class SessionController extends Controller
         $request->session()->put('isMember', true);
         return "OK";
     }
+
+    public function getSession(Request $request): string
+    {
+        $userId = $request->session()->get('userId', 'guest');
+        $isMember = $request->session()->get('isMember', 'false');
+
+        return "User Id : " . $userId . " isMember : " . $isMember;
+    }
 }

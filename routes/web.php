@@ -168,6 +168,7 @@ Route::get('/url/action', function () {
 
 // Session Controller
 Route::get('/session/create', [SessionController::class, 'createSession']);
+Route::get('/session/get', [SessionController::class, 'getSession']);
 
 // Error 404
 Route::fallback(function () {
