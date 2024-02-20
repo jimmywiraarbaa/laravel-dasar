@@ -187,6 +187,25 @@ Route::get('/error/validation', function () {
     throw new ValidationException("Validation Error");
 });
 
+
+// Error 400
+Route::get('/abort/400', function () {
+    abort(400);
+});
+
+
+// Error 401
+Route::get('/abort/401', function () {
+    abort(401);
+});
+
+
+// Error 500
+Route::get('/abort/500', function () {
+    abort(500);
+});
+
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";

@@ -34,12 +34,12 @@ class Handler extends ExceptionHandler
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {
-            var_dump($e);
+            // var_dump($e);
             return false;
         });
 
-        $this->renderable(function (\Exception $exception, Request $request) {
-            return response("Bad Request", 400);
-        });
+        // $this->renderable(function (\Exception $exception, Request $request) {
+        //     return response("Bad Request", 400);
+        // });
     }
 }
