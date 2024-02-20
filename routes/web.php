@@ -175,6 +175,12 @@ Route::get('/error/sample', function () {
     throw new Exception("Sample Error");
 });
 
+// Error Report Manual
+Route::get('/error/manual', function () {
+    report(new Exception("Sample Error"));
+    return "OK";
+});
+
 // Error 404
 Route::fallback(function () {
     return "Error 404 by Jimmy Wira Arbaa";
